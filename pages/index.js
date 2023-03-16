@@ -31,8 +31,16 @@ export default function Home() {
         type={'default'}
         onClick={onChangeModal}
       >Open Modal</Button>
-      <Modal visible={visible} onChange={onChangeModal}
-      />
+      <Modal visible={visible} onChange={onChangeModal}>
+        <div className="w-full flex items-center justify-between">
+          <h3>Title Modal</h3>
+          <Button
+            htmlType={'button'}
+            type={'default'}
+            onClick={onChangeModal}
+          >Close</Button>
+        </div>
+      </Modal>
       <h1>Home Page</h1>
     </div>
   )
