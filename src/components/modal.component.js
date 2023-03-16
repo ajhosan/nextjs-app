@@ -1,17 +1,18 @@
 import PropTypes, { func } from 'prop-types'
-import Button from './button.component'
+import Button from '@/src/components/button.component'
 
 
 function Modal(props) {
     return (
         <div>
             <div className={`
-
-            
+            ${props?.visible ? 'flex' : 'hidden'
+                }
+                
             fixed top-0 left-0 w-full items-center justify-center bg-black bg-opacity-50 h-screen`
             }>
 
-                <div className={'w-2/4 h-3/4 mx-auto bg-white rounded-xl'}>
+                <div className={'z-[1] relative w-2/4 h-3/4 mx-auto bg-white rounded-xl'}>
                     <Button
                         htmlType={'button'}
                         type={'default'}
@@ -37,3 +38,5 @@ Modal.defaultProps = {
 
     }
 }
+
+export default Modal

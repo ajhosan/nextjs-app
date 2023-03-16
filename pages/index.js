@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div>
       <Navbar />
-      <Button
+      {/* <Button
         htmlType={'button'}
         type={'default'}
         onClick={(e) => {
@@ -24,14 +24,14 @@ export default function Home() {
         onClick={(e) => {
           console.log(e, 'button 2')
         }}
-      >Button 2</Button>
+      >Button 2</Button> */}
 
       <Button
         htmlType={'button'}
-        type={'dafault'}
+        type={'default'}
         onClick={onChangeModal}
       >Open Modal</Button>
-      <Modal visible={false} onChange={onChangeModal}
+      <Modal visible={visible} onChange={onChangeModal}
       />
       <h1>Home Page</h1>
     </div>
