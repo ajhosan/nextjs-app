@@ -18,5 +18,9 @@ function AppSwitchTheme({ children }) {
 }
 
 export default function App({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <AppSwitchTheme>
+      <Component {...pageProps} />
+    </AppSwitchTheme>
+  )
 }
