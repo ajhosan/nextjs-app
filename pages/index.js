@@ -25,6 +25,12 @@ export default function Home() {
           console.log(e, 'button 2')
         }}
       >Button 2</Button>
+
+      <Button
+        htmlType={'button'}
+        type={'dafault'}
+        onClick={onChangeModal}
+      >Open Modal</Button>
       <Modal visible={false} onChange={onChangeModal}
       />
       <h1>Home Page</h1>
