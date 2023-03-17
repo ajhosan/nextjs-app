@@ -1,3 +1,4 @@
+import { SessionProvider, getSession } from 'next-auth/react'
 import '@/src/assets/sass/main.scss'
 import "@/src/assets/dist/styles.css";
 import { useRouter } from 'next/router';
@@ -17,10 +18,34 @@ function AppSwitchTheme({ children }) {
   }
 }
 
-export default function App({ Component, pageProps }) {
+function App(props) {
+  let {
+    Component,
+    pageProps: {
+      session,
+      ...pageProps
+    }
+  } = props;
   return (
-    <AppSwitchTheme>
-      <Component {...pageProps} />
-    </AppSwitchTheme>
+    <SessionProvider session={session}>
+      <AppSwitchTheme>
+        <Component {...pageProps} />
+      </AppSwitchTheme>
+    </SessionProvider>
   )
 }
+
+App.getInitialProps = async ({ Component, ctx }) => {
+  let pageProps = Component.getInitialProps ? await Component.getInitialProps(ctx) : {};
+  const session = await getSession(ctx);
+
+  pageProps = {
+    ...pageProps,
+    session
+  }
+
+  return { pageProps }
+}
+
+
+export default App
